@@ -1,0 +1,43 @@
+.profile-icon{
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.login span{
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.login input{
+    font-size: 12px;
+    font-weight: bold;
+    width: 250px;
+    height: 17px;
+    color: #000000;
+    background-color:#ffffff;
+    outline: none;
+    border: none;
+}
+
+.f{
+    display: none;
+}
+
+.l{
+    outline: none;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    width: 250px;
+    height: 17px;
+    color: #3399ff;
+    
+}
+
+.l:hover{
+    color: #0033ff;
+}
+

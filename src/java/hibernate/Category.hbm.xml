@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 25, 2020 11:55:24 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Category" table="category" catalog="buyall" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shopCategory" class="hibernate.ShopCategory" fetch="select">
+            <column name="shop_category_id" not-null="true" />
+        </many-to-one>
+        <property name="categoryId" type="string">
+            <column name="category_id" length="10" />
+        </property>
+        <property name="category" type="string">
+            <column name="category" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <set name="brandHasCategories" table="brand_has_category" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.BrandHasCategory" />
+        </set>
+    </class>
+</hibernate-mapping>

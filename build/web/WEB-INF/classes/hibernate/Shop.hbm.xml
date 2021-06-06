@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 25, 2020 11:55:24 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Shop" table="shop" catalog="buyall" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shopCategory" class="hibernate.ShopCategory" fetch="select">
+            <column name="shop_category_id" not-null="true" />
+        </many-to-one>
+        <property name="shopId" type="string">
+            <column name="shop_id" length="10" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="no" type="string">
+            <column name="no" length="45" />
+        </property>
+        <property name="street" type="string">
+            <column name="street" length="70" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="45" />
+        </property>
+        <property name="tp" type="java.lang.Integer">
+            <column name="tp" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="rating" type="java.lang.Double">
+            <column name="rating" precision="22" scale="0" />
+        </property>
+        <property name="shopImg" type="string">
+            <column name="shop_img" length="65535" />
+        </property>
+        <set name="shopHasProducts" table="shop_has_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="shop_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.ShopHasProduct" />
+        </set>
+    </class>
+</hibernate-mapping>
